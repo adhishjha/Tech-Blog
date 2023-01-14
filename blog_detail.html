@@ -16,14 +16,32 @@
 </head>
 <body>
     <!-- navbar -->
-    <div class="bg-black flex h-14 justify-between items-center px-6">
+    <div class="bg-black flex h-14 justify-between items-center px-6 relative">
         <div class="w-44">
             <a href="index.html">
                 <img src="img/logo.png" alt="image">
             </a>
         </div>
         <div class="md:hidden">
-            <span class="material-symbols-outlined text-4xl text-white">menu</span>
+            <button onclick="menuOpen()">
+                <span class="material-symbols-outlined text-4xl text-white">menu</span>
+            </button>
+        </div>
+        <div id="nav" class="hidden fixed top-0">
+            <div class="text-end pr-8 pt-1">
+            <button onclick="menuClose()" class="text-4xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            </div>
+            <div class="flex justify-center pt-28">
+            <ul class="text-white flex flex-col space-y-6 text-xl">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            </div>
         </div>
         <div class="hidden md:block">
             <ul class="text-white flex space-x-10 text-lg">
@@ -114,5 +132,14 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function menuOpen(){
+            document.getElementById("nav").setAttribute("class","fixed top-0 left-0 bg-red-500 w-screen h-screen duration-700")
+        }
+        function menuClose(){
+            document.getElementById("nav").setAttribute("class","fixed top-0 -left-full bg-red-500 w-screen h-screen duration-700")
+        }
+    </script>
 </body>
 </html>
